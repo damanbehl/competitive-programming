@@ -5,6 +5,7 @@ import java.util.HashMap;
 /**
  * Problem Link
  * https://www.codingninjas.com/codestudio/problems/number-of-pairs-with-given-sum_630509
+ * (arr[i],arr[j]) == (arr[j],arr[i]) considered as same
  */
 
 public class PairSumWithRep {
