@@ -9,22 +9,25 @@ import java.util.Arrays;
 
 public class KSumUniqueTarget {
     public static void main(String[] args) {
-        int nums[] = { 2, 2, 2, 2, 2 };
-        int target = 8;
+        int nums[] = { 1, 0, -1, 0, -2, 2 };
+        int target = 0;
         Arrays.sort(nums);
         System.out.println(Arrays.toString(nums));
         System.out.println(kSumHelper(nums, target, 0, 4));
     }
 
     static List<List<Integer>> kSumHelper(int arr[], int target, int si, int k) {
+        if (k == 2) {
+            return twoSumPairs(arr, si, target);
+        }
         List<List<Integer>> result = new ArrayList<>();
         int n = arr.length;
         if (n - si < k) {
             return result;
         }
-        if (k == 2) {
-            return twoSumPairs(arr, si, target);
-        }
+        // if (k == 2) {
+        // return twoSumPairs(arr, si, target);
+        // }
         for (int i = si; i <= n - k; i++) {
             List<List<Integer>> subRes = new ArrayList<>();
             /**
