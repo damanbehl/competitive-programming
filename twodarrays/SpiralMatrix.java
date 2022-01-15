@@ -13,13 +13,16 @@ public class SpiralMatrix {
                 { 5, 6, 7, 8 },
                 { 9, 10, 11, 12 },
                 { 13, 14, 15, 16 } };
-        print(spiralOrder(matrix));
+        int smatrix[][] = {};
+        print(spiralOrder(smatrix));
 
     }
 
     public static List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
-
+        if (matrix.length == 0) {
+            return result;
+        }
         result = printMatrix(matrix, 0, matrix.length - 1, 0, matrix[0].length - 1, result);
         return result;
     }
@@ -49,6 +52,7 @@ public class SpiralMatrix {
             m++;
             return printMatrix(matrix, k, l, m, n, result);
         }
+        // For remaining single inner row or column
         if (k == l) {
             for (int col = m; col <= n; col++) {
                 result.add(matrix[k][col]);
