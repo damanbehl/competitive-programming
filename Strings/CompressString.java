@@ -4,7 +4,7 @@ package Strings;
 
 public class CompressString {
     public static void main(String[] args) {
-        System.out.println(getCompressedString("aaaaaaaaa"));
+        System.out.println(getCompressedString("abcacc"));
     }
 
     public static String getCompressedString(String str) {
@@ -12,19 +12,21 @@ public class CompressString {
             return "";
         }
         // Write your code here.
-        // return recursiveCompressor(str, "", 0, 0);
-        return loopCompressor(str);
+        StringBuilder sb = new StringBuilder();
+        return recursiveCompressor(str, sb, 0, 0).toString();
+        // return loopCompressor(str);
 
     }
 
     // TODO:stack overflow on recursive call figure out why
-    public static String recursiveCompressor(String input, String result, int reps, int pointer) {
+    public static StringBuilder recursiveCompressor(String input, StringBuilder result, int reps, int pointer) {
         if (pointer == input.length() - 1) {
             if (reps == 0) {
-                result += input.charAt(pointer);
+                // result += input.charAt(pointer);
+                result.append(input.charAt(pointer));
                 return result;
             } else {
-                result = result + input.charAt(pointer) + String.valueOf(reps + 1);
+                result.append(input.charAt(pointer) + String.valueOf(reps + 1));
                 return result;
             }
         } else {
@@ -32,9 +34,11 @@ public class CompressString {
                 return recursiveCompressor(input, result, ++reps, ++pointer);
             } else {
                 if (reps == 0) {
-                    result = result + input.charAt(pointer);
+                    // result = result + input.charAt(pointer);
+                    result.append(input.charAt(pointer));
                 } else {
-                    result = result + input.charAt(pointer) + String.valueOf(reps + 1);
+                    result.append(input.charAt(pointer) + String.valueOf(reps + 1));
+                    // result = result + input.charAt(pointer) + String.valueOf(reps + 1);
                 }
                 return recursiveCompressor(input, result, 0, ++pointer);
             }
