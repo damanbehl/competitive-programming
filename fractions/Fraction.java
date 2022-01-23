@@ -26,9 +26,10 @@ public class Fraction {
         return denominator;
     }
 
-    public void setDenominator(int denominator) {
+    public void setDenominator(int denominator) throws ZeroDenominatorException {
         if (denominator == 0) {
-            throw new Error("Denominator cannot be zero");
+            ZeroDenominatorException e = new ZeroDenominatorException();
+            throw e;
         }
         this.denominator = denominator;
         simplify();
