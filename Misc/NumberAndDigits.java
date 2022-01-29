@@ -1,5 +1,5 @@
 //https://www.codingninjas.com/codestudio/problems/number-and-digits_975269
-package Misc;
+package misc;
 
 import java.util.ArrayList;
 import java.util.Collections;
