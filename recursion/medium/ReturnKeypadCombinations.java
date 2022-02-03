@@ -11,8 +11,10 @@ import java.util.List;
  */
 public class ReturnKeypadCombinations {
     public static void main(String[] args) throws Exception {
-        List<String> result = findPossibleWords("793");
-        print(result);
+        // List<String> result = findPossibleWords("793");
+        // print(result);
+        // printPossibleWords("793", "");
+        printPossibleWords("23", "");
     }
 
     public static List<String> findPossibleWords(String s) throws Exception {
@@ -92,6 +94,32 @@ public class ReturnKeypadCombinations {
 
     static void print(List<String> al) {
         for (String x : al) {
+            System.out.print(x + " ");
+        }
+    }
+
+    /**
+     * Variation to print keypad
+     * 
+     * @param s
+     * @return
+     * @throws Exception
+     */
+    public static void printPossibleWords(String s, String ans) throws Exception {
+        // Write your code here.
+        if (s.length() == 0) {
+            System.out.print(ans + " ");
+            return;
+        }
+        List<String> current = helper(s.charAt(s.length() - 1));
+        for (String x : current) {
+            printPossibleWords(s.substring(0, s.length() - 1), x + ans);
+        }
+    }
+
+    static void print(String input[]) {
+        System.out.println(input.length);
+        for (String x : input) {
             System.out.print(x + " ");
         }
     }
