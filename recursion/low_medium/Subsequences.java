@@ -9,7 +9,8 @@ import java.util.Collections;
 
 public class Subsequences {
     public static void main(String[] args) {
-        print(subsequences("bbb"));
+        // print(subsequences("bbb"));
+        printSubsequences("xyz", "");
     }
 
     public static ArrayList<String> subsequences(String str) {
@@ -39,5 +40,23 @@ public class Subsequences {
         for (String x : al) {
             System.out.print(x + " ");
         }
+    }
+
+    /**
+     * less work
+     * 
+     * @param s:   input string
+     * @param ans: answer we are carrying across function calls
+     */
+    static void printSubsequences(String s, String ans) {
+        if (s.length() == 0) {
+            System.out.println(ans + " ");
+            return;
+        }
+        // subsequence at any given point can be whether we include the first char in
+        // ans or we do not
+        // 2^n
+        printSubsequences(s.substring(1), ans);
+        printSubsequences(s.substring(1), ans += s.charAt(0));
     }
 }
