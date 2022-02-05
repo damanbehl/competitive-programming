@@ -1,7 +1,6 @@
 package recursion.medium;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class NoOfWaysToN {
     static final int mod = 1000000007;
@@ -70,48 +69,5 @@ public class NoOfWaysToN {
             }
         }
         return R;
-    }
-
-    static int countNumberOfWays(int x) {
-        if (x == 0) {
-            return 1;
-        }
-        if (x < 0) {
-            return 0;
-        }
-        return countNumberOfWays(x - 3) + countNumberOfWays(x - 2) + countNumberOfWays(x - 1);
-    }
-
-    // using fibonacci but this will be O(N)
-    public static int countDistinctWayToClimbStairIterative(long nStairs) {
-        int a = 1;
-        int b = 1;
-        nStairs = nStairs % mod;
-        for (int i = 2; i <= nStairs; i++) {
-            int temp = b;
-            b = (a % mod + b % mod) % mod;
-            a = temp;
-
-        }
-        return b;
-    }
-
-    // Will take too much space
-    public static int countDistinctWayToClimbStairCache(long nStairs, HashMap<Long, Integer> hm) {
-        // Write your code here.
-        if (nStairs == 0) {
-            return 1;
-        }
-        if (nStairs < 0) {
-            return 0;
-        }
-        if (hm.getOrDefault(nStairs, 0) != 0) {
-            return hm.get(nStairs);
-        }
-        int nMinusTwo = countDistinctWayToClimbStairCache(nStairs - 2, hm) % mod;
-        int nMinusOne = countDistinctWayToClimbStairCache(nStairs - 1, hm) % mod;
-        int res = (nMinusOne + nMinusTwo) % mod;
-        hm.put(nStairs, res);
-        return res;
     }
 }
