@@ -79,4 +79,24 @@ public class RotateArrayByInt {
         }
 
     }
+
+    public void rotateZeroNoExtraSpace(int nums[], int k) {
+        k = k % nums.length;
+        // reverse entire array
+        reverse(nums, 0, nums.length - 1);
+        // reverse part that has to be rotated
+        reverse(nums, 0, k - 1);
+        // reverse rest of the array
+        reverse(nums, k, nums.length - 1);
+    }
+
+    static void reverse(int nums[], int i, int j) {
+        while (i < j) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            i++;
+            j--;
+        }
+    }
 }
