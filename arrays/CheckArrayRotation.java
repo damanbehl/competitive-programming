@@ -2,10 +2,10 @@ package arrays;
 
 public class CheckArrayRotation {
     public static void main(String args[]) {
-        int arr[] = { 15, 1, 2, 3, 6, 12 };
+        int arr[] = { 10, 20, 30, 1 };
         int n = arr.length;
-
-        System.out.println(rotatedArrayCount(arr, n));
+        CheckArrayRotation ob = new CheckArrayRotation();
+        System.out.println(ob.findKRotation(arr, n));
     }
 
     public static int rotatedArray(int arr[], int n) {
@@ -18,12 +18,25 @@ public class CheckArrayRotation {
                 smallestIndex = n;
             }
             // if (arr.length > 2 && n > 2 && arr[n - 1] > arr[n]) {
-            //     break;
+            // break;
             // }
         }
         return smallest;
     }
 
+    // simpler
+    public static int rotatedArraySimpler(int arr[], int n) {
+        int returnVal = arr[0];
+        for (int i = 0; i < n - 1; i++) {
+            if (arr[i + 1] < arr[i]) {
+                returnVal = arr[i + 1];
+                break;
+            }
+        }
+        return returnVal;
+    }
+
+    // inefficient
     public static int rotatedArrayCount(int arr[], int n) {
         // Write your code here.
         int smallest = Integer.MAX_VALUE;
@@ -38,5 +51,17 @@ public class CheckArrayRotation {
             }
         }
         return smallestIndex;
+    }
+
+    // better
+    int findKRotation(int arr[], int n) {
+        int result = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (arr[i + 1] < arr[i]) {
+                result = i + 1;
+                break;
+            }
+        }
+        return result;
     }
 }
