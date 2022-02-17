@@ -61,12 +61,21 @@ public class LinkedListUse {
         }
     }
 
-    static int length(Node<Integer> head) {
+    public static int length(Node<Integer> head) {
         int length = 0;
         while (head != null) {
             head = head.next;
             length++;
         }
         return length;
+    }
+
+    public static <T> String returnLinkedListasString(Node<T> head) {
+        String result = "";
+        while (head != null) {
+            result = result + " " + head.data;
+            head = head.next;
+        }
+        return result;
     }
 }

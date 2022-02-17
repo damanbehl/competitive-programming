@@ -2,7 +2,7 @@ package linked_list.easy;
 //https://www.codingninjas.com/codestudio/problems/print-reverse-linkedlist_564
 import linked_list.concept.Node;
 
-class Solution {
+public class PrintReverseLL {
 
     public static void printReverse(Node<Integer> root) {
         // Your code goes here
