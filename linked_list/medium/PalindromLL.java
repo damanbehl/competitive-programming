@@ -1,6 +1,7 @@
 package linked_list.medium;
 
 //https://www.codingninjas.com/codestudio/problems/palindrom-linked-list_799352
+//https://leetcode.com/problems/palindrome-linked-list/submissions/
 import linked_list.concept.Node;
 import linked_list.concept.LinkedListUse;
 import utility.OutputToFile;
@@ -64,15 +65,12 @@ public class PalindromLL {
         boolean retVal = true;
         while (head1 != null && head2 != null) {
             if (head1.data.intValue() != head2.data.intValue()) {
-                System.out.println(head1.data == head2.data);
-                System.out.println("false for head1 data=" + head1.data + "   head 2 data" + head2.data);
                 return false;
             }
             head1 = head1.next;
             head2 = head2.next;
         }
         if (head1 != null || head2 != null) {
-            System.out.println("false for one of them being not null");
             return false;
         }
         return retVal;
