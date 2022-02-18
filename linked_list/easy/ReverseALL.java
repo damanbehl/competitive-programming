@@ -1,4 +1,5 @@
 package linked_list.easy;
+
 //https://leetcode.com/problems/reverse-linked-list/
 import linked_list.concept.Node;
 
@@ -49,5 +50,16 @@ public class ReverseALL {
         } else {
             retHead = prevHead;
         }
+    }
+
+    public Node<Integer> reverseLLRBetter(Node<Integer> head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node<Integer> temp = head.next;
+        Node<Integer> smallHead = reverseLLRBetter(head.next);
+        temp.next = head;
+        head.next = null;
+        return smallHead;
     }
 }
