@@ -24,6 +24,22 @@ public class FindANode {
         return -1;
     }
 
+    public static int findNodeRecursive(Node<Integer> head, int n) {
+        // Write your code here.
+        return findNodeHelper(head, n, 0);
+    }
+
+    public static int findNodeHelper(Node<Integer> head, int n, int i) {
+        if (head == null) {
+            return -1;
+        }
+        if (head.data.intValue() == n) {
+            return i;
+        }
+        return findNodeHelper(head.next, n, ++i);
+
+    }
+
     public static Node<Integer> takeInput() {
         Scanner sc = new Scanner(System.in);
         int data = sc.nextInt();
