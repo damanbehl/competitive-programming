@@ -23,7 +23,6 @@ public class OddEvenLL {
         Node<Integer> even = odd.next;
         Node<Integer> evenTail = even;
         head = head.next.next;
-        System.out.println(head.data);
         while (head != null) {
             if (i % 2 == 0) {
                 evenTail.next = head;
