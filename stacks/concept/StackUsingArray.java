@@ -37,11 +37,20 @@ public class StackUsingArray {
         return data[top];
     }
 
-    public void push(int elem) throws StackFullException {
+    // public void push(int elem) throws StackFullException {
+    // if (size() == data.length) {
+    // // stack full
+    // StackFullException e = new StackFullException();
+    // throw e;
+    // }
+    // top++;
+    // data[top] = elem;
+    // }
+
+    public void push(int elem) {
         if (size() == data.length) {
             // stack full
-            StackFullException e = new StackFullException();
-            throw e;
+            resize();
         }
         top++;
         data[top] = elem;
@@ -55,5 +64,13 @@ public class StackUsingArray {
         int ret = data[top];
         top--;
         return ret;
+    }
+
+    private void resize() {
+        int newData[] = new int[2 * size()];
+        for (int i = 0; i < data.length; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 }
