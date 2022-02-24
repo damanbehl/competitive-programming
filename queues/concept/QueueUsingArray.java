@@ -38,9 +38,10 @@ public class QueueUsingArray {
         return data[front];
     }
 
-    public void enqueue(int element) throws QueueOverflowException {
+    public void enqueue(int element) {
         if (size == data.length) {
-            throw new QueueOverflowException();
+            // throw new QueueOverflowException();
+            resize();
         }
         if (size == 0) {
             front = 0;
@@ -59,7 +60,7 @@ public class QueueUsingArray {
         front = (front + 1) % data.length;
         // front++;
         // if (front == data.length) {
-        //     front = 0;
+        // front = 0;
         // }
         size--;
         if (size == 0) {
@@ -67,5 +68,16 @@ public class QueueUsingArray {
             rear = -1;
         }
         return temp;
+    }
+
+    private void resize() {
+        int newQueue[] = new int[data.length * 2];
+        int i;
+        for (i = 0; i < data.length; i++) {
+            newQueue[i] = data[(i + front) % data.length];
+        }
+        front = 0;
+        rear = i - 1;
+        data = newQueue;
     }
 }
