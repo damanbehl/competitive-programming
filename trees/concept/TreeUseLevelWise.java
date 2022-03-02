@@ -123,5 +123,6 @@ public class TreeUseLevelWise {
         TreeNode<Integer> largest = findLargestNode(root);
         System.out.println("largest is " + largest.data);
         System.out.println("No of nodes in tree are " + noOfNodes(root));
+        System.out.println("height of tree is " + height(root));
     }
 }
