@@ -102,6 +102,21 @@ public class TreeUseLevelWise {
         return largest;
     }
 
+    // https://leetcode.com/problems/maximum-depth-of-n-ary-tree/
+    public static int height(TreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        int maxSubHeight = 0;
+        for (int i = 0; i < root.children.size(); i++) {
+            int subHeight = height(root.children.get(i));
+            if (subHeight > maxSubHeight) {
+                maxSubHeight = subHeight;
+            }
+        }
+        return maxSubHeight + 1;
+    }
+
     public static void main(String[] args) {
         TreeNode<Integer> root = takeInput();
         print_formatted(root);
