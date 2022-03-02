@@ -51,13 +51,13 @@ public class TreeUseLevelWise {
 
         }
     }
-    //levelwise
+
+    // levelwise
     public static void print_formatted(TreeNode<Integer> root) {
         QueueUsingLL<TreeNode<Integer>> queue = new QueueUsingLL<>();
         queue.enqueue(root);
         while (!queue.empty()) {
             int n = queue.size();
-            System.out.println();
             for (int i = 0; i < n; i++) {
                 try {
                     TreeNode<Integer> frontNode = queue.dequeue();
@@ -69,11 +69,44 @@ public class TreeUseLevelWise {
                     e.printStackTrace();
                 }
             }
+            System.out.println();
         }
+    }
+
+    public static int noOfNodes(TreeNode<Integer> root) {
+        // edge case not base case
+        if (root == null) {
+            return 0;
+        }
+        // if (root.children.size() == 0) {
+        // return 1;
+        // }
+        int total = 1;
+        for (int i = 0; i < root.children.size(); i++) {
+            total += noOfNodes(root.children.get(i));
+        }
+        return total;
+    }
+
+    public static TreeNode<Integer> findLargestNode(TreeNode<Integer> root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode<Integer> largest = root;
+        for (int i = 0; i < root.children.size(); i++) {
+            TreeNode<Integer> child = findLargestNode(root.children.get(i));
+            if (child.data > largest.data) {
+                largest = child;
+            }
+        }
+        return largest;
     }
 
     public static void main(String[] args) {
         TreeNode<Integer> root = takeInput();
         print_formatted(root);
+        TreeNode<Integer> largest = findLargestNode(root);
+        System.out.println("largest is " + largest.data);
+        System.out.println("No of nodes in tree are " + noOfNodes(root));
     }
 }
