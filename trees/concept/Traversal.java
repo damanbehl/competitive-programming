@@ -8,7 +8,7 @@ public class Traversal {
         TreeNode<Integer> root = TreeUseLevelWise.takeInput();
         TreeUseLevelWise.print_formatted(root);
         preOrder(root);
-        System.out.println();
+        System.out.println("following is post order \t");
         postOrder(root);
     }
 
