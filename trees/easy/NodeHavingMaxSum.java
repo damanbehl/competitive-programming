@@ -17,7 +17,7 @@ public class NodeHavingMaxSum {
     public static void main(String[] args) {
         TreeNode<Integer> root = TreeUseLevelWise.takeInput();
         Maximizer ans = maxSumNode(root);
-        System.out.println(ans.sumOfselfandImmNodes);
+        System.out.println(ans.node.data);
     }
 
     public static Maximizer maxSumNode(TreeNode<Integer> root) {
