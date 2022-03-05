@@ -13,12 +13,13 @@ public class BinaryTreeUse {
         // root.left = left;
         // root.right = right;
         // System.out.println(" empty");
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
         // BinaryTreeNode<Integer> root = takeInput(sc);
         BinaryTreeNode<Integer> root = takeInputLevelWise();
-        printTree(root);
+        // printTree(root);
         System.out.println("Printing levelwise");
         printLevelWise(root);
+        System.out.println(height(root, 0));
     }
 
     public static BinaryTreeNode<Integer> takeInput(Scanner sc) {
@@ -79,6 +80,18 @@ public class BinaryTreeUse {
             }
         }
         return root;
+    }
+
+    public static int height(BinaryTreeNode<Integer> root, int x) {
+        // code here
+        if (root == null) {
+            return x;
+        }
+        ++x;
+        System.out.println("value of x" + x);
+        int leftHeight = height(root.left, x);
+        int rightHeight = height(root.right, x);
+        return Math.max(leftHeight, rightHeight);
     }
 
     public static void printLevelWise(BinaryTreeNode<Integer> root) {
