@@ -10,7 +10,7 @@ public class DiameterBTree {
     public static void main(String[] args) {
         BinaryTreeNode<Integer> root = BinaryTreeUse.takeInputLevelWise();
         BinaryTreeUse.printLevelWise(root);
-        System.out.println(diameter(root));
+        System.out.println(diameterBetterUsingHeight(root));
     }
 
     public static int height(BinaryTreeNode<Integer> root) {
@@ -30,5 +30,24 @@ public class DiameterBTree {
         int option2 = diameter(root.left);
         int option3 = diameter(root.right);
         return Math.max(option1, Math.max(option2, option3));
+    }
+
+    public int diameterOfBinaryTree(BinaryTreeNode<Integer> root) {
+        diameter = 0;
+        int height = diameterBetterUsingHeight(root);
+        return diameter;
+    }
+
+    public static int diameterBetterUsingHeight(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return -1;
+        }
+        int leftChildHeight = diameterBetterUsingHeight(root.left);
+        int rightChildHeight = diameterBetterUsingHeight(root.right);
+        int candidate = leftChildHeight + rightChildHeight + 2;
+        if (candidate > diameter) {
+            diameter = candidate;
+        }
+        return Math.max(leftChildHeight, rightChildHeight) + 1;
     }
 }
