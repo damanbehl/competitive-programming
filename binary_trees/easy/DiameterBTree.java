@@ -17,7 +17,9 @@ public class DiameterBTree {
         if (root == null) {
             return -1;
         }
-        int ch = Math.max(height(root.left), height(root.right));
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        int ch = Math.max(leftHeight, rightHeight);
 
         return ch + 1;
     }
@@ -50,4 +52,28 @@ public class DiameterBTree {
         }
         return Math.max(leftChildHeight, rightChildHeight) + 1;
     }
+
+    public static Pair<Integer, Integer> diameterBottomUp(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            Pair<Integer, Integer> zero = new Pair<>();
+            zero.first = -1;
+            zero.second = 0;
+            return zero;
+        }
+        Pair<Integer, Integer> leftHd = diameterBottomUp(root.left);
+        Pair<Integer, Integer> rightHd = diameterBottomUp(root.right);
+        // + 2 for the edges that connect the node for which we are recursing on the
+        // left and the right sub tree
+        int diameter = leftHd.first + rightHd.first + 2;
+        int height = 1 + Math.max(leftHd.first, rightHd.first);
+        Pair<Integer, Integer> currentPair = new Pair<>();
+        currentPair.first = height;
+        currentPair.second = Math.max(diameter, Math.max(leftHd.second, rightHd.second));
+        return currentPair;
+    }
+}
+
+class Pair<T, V> {
+    T first;
+    V second;
 }
