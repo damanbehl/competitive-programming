@@ -1,10 +1,10 @@
-package trees.easy;
+package generic_tree.easy;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import trees.concept.TreeUseLevelWise;
-import trees.concept.TreeNode;
+import generic_tree.concept.TreeNode;
+import generic_tree.concept.TreeUseLevelWise;
 import utility.OutputALOfNodes;
 
 public class NoOfNodesGreaterThanX {

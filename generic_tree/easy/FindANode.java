@@ -1,6 +1,6 @@
-package trees.easy;
+package generic_tree.easy;
 
-import trees.concept.TreeNode;
+import generic_tree.concept.TreeNode;
 
 public class FindANode {
     public static boolean find(TreeNode<Integer> node, int data) {

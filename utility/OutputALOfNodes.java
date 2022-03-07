@@ -1,7 +1,8 @@
 package utility;
 
 import java.util.ArrayList;
-import trees.concept.TreeNode;
+
+import generic_tree.concept.TreeNode;
 
 public class OutputALOfNodes {
     /**

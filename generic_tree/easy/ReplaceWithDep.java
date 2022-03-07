@@ -1,7 +1,7 @@
-package trees.easy;
+package generic_tree.easy;
 
-import trees.concept.TreeUseLevelWise;
-import trees.concept.TreeNode;
+import generic_tree.concept.TreeNode;
+import generic_tree.concept.TreeUseLevelWise;
 
 public class ReplaceWithDep {
     public static void main(String[] args) {

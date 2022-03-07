@@ -1,7 +1,7 @@
-package trees.concept;
+package generic_tree.concept;
 
-import trees.concept.TreeNode;
-import trees.concept.TreeUseLevelWise;
+import generic_tree.concept.TreeNode;
+import generic_tree.concept.TreeUseLevelWise;
 
 public class Traversal {
     public static void main(String[] args) {

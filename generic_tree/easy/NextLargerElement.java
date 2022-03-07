@@ -1,9 +1,9 @@
-package trees.easy;
+package generic_tree.easy;
 
 import java.util.Scanner;
 
-import trees.concept.TreeNode;
-import trees.concept.TreeUseLevelWise;
+import generic_tree.concept.TreeNode;
+import generic_tree.concept.TreeUseLevelWise;
 
 public class NextLargerElement {
     public static void main(String[] args) {

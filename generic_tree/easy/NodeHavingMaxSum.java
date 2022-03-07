@@ -1,7 +1,7 @@
-package trees.easy;
+package generic_tree.easy;
 
-import trees.concept.TreeNode;
-import trees.concept.TreeUseLevelWise;
+import generic_tree.concept.TreeNode;
+import generic_tree.concept.TreeUseLevelWise;
 
 class Maximizer {
     public TreeNode<Integer> node;

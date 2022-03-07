@@ -1,4 +1,4 @@
-package trees.concept;
+package generic_tree.concept;
 
 import java.util.Scanner;
 
