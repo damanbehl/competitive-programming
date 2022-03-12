@@ -3,8 +3,17 @@ package bst.easy;
 import java.util.ArrayList;
 
 import binary_trees.concept.BinaryTreeNode;
+import binary_trees.concept.BinaryTreeUse;
+import utility.PrintArrayList;
 
 public class ElementsInRange {
+    public static void main(String[] args) {
+        BinaryTreeNode<Integer> root = BinaryTreeUse.takeInputLevelWise();
+        ArrayList<Integer> res = printNearNodes(root, 6, 10);
+        PrintArrayList printer = new PrintArrayList();
+        printer.print(res);
+    }
+
     public static ArrayList<Integer> printNearNodes(BinaryTreeNode<Integer> root, int low, int high) {
         // code here.
         ArrayList<Integer> result = new ArrayList<>();

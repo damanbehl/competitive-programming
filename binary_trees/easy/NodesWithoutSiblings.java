@@ -11,7 +11,7 @@ public class NodesWithoutSiblings {
         BinaryTreeNode<Integer> root = BinaryTreeUse.takeInputLevelWise();
         ArrayList<Integer> result = nodesWithoutSiblings(root);
         BinaryTreeUse.printLevelWise(root);
-        PrintArrayList<Integer> printer = new PrintArrayList<>();
+        PrintArrayList printer = new PrintArrayList();
         printer.print(result);
     }
 
