@@ -33,4 +33,18 @@ public class ZeroSumPair {
         return count;
     }
 
+    // linear time single traversal, final test case passed
+    static int ZeroPairSumBetter(int n, ArrayList<Integer> arr) {
+        // Write your code here.
+        int count = 0;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int x : arr) {
+            int complementCount = hm.getOrDefault(-x, 0);
+            if (complementCount > 0) {
+                count += complementCount;
+            }
+            hm.put(x, hm.getOrDefault(x, 0) + 1);
+        }
+        return count;
+    }
 }
