@@ -1,5 +1,6 @@
 package binary_trees.medium;
 
+//https://leetcode.com/problems/flatten-binary-tree-to-linked-list
 import java.util.Stack;
 
 // Definition for a binary tree node.
@@ -69,4 +70,25 @@ public class FlattenABT {
         prev = root;
     }
 
+    // flattening using morris traversal, the rightmost node of the left subtree's
+    // preorder's right is connected to the right of the root(contextual) and then
+    // we traverse onwards to each and every possible left tree on either side
+    public void flattenMorrisTraversal(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        TreeNode curr = root;
+        while (curr != null) {
+            if (curr.left != null) {
+                TreeNode prev = curr.left;
+                while (prev.right != null) {
+                    prev = prev.right;
+                }
+                prev.right = curr.right;
+                curr.right = curr.left;
+                curr.left = null;
+            }
+            curr = curr.right;
+        }
+    }
 }
