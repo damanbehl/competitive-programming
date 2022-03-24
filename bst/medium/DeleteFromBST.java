@@ -21,21 +21,15 @@ public class DeleteFromBST {
                 return root.left;
             } else {
                 TreeNode subRoot = root.right;
-                TreeNode prevToSub = root.right;
                 while (subRoot.left != null) {
-                    prevToSub = subRoot;
                     subRoot = subRoot.left;
                 }
-                if (subRoot.right != null && subRoot != prevToSub) {
-                    prevToSub.left = subRoot.right;
-                } else {
-                    prevToSub.left = null;
-                }
-                if (subRoot != prevToSub) {
-                    subRoot.right = root.right;
-                }
-                subRoot.left = root.left;
-                return subRoot;
+                root.val = subRoot.val;
+                // can use recursion to delete the replaced value from the right subtree
+                // update the root since the value can be found immediately and then return
+                // original root
+                root.right = deleteNode(root.right, subRoot.val);
+                return root;
             }
         }
     }

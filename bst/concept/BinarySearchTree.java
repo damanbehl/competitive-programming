@@ -76,22 +76,13 @@ public class BinarySearchTree {
             } else if (root.right == null) {
                 return root.left;
             } else {
-                BinaryTreeNode<Integer> subRoot = root.right;
-                BinaryTreeNode<Integer> prevToSub = root.right;
-                while (subRoot.left != null) {
-                    prevToSub = subRoot;
-                    subRoot = subRoot.left;
+                BinaryTreeNode<Integer> minNode = root.right;
+                while (minNode.left != null) {
+                    minNode = minNode.left;
                 }
-                if (subRoot.right != null && subRoot != prevToSub) {
-                    prevToSub.left = subRoot.right;
-                } else {
-                    prevToSub.left = null;
-                }
-                if (subRoot != prevToSub) {
-                    subRoot.right = root.right;
-                }
-                subRoot.left = root.left;
-                return subRoot;
+                root.data = minNode.data;
+                root.right = deleteDataHelper(root.right, minNode.data);
+                return root;
             }
         }
 
