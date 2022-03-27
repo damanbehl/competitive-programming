@@ -13,12 +13,8 @@ public class DeleteFromBST {
             root.right = deleteNode(root.right, key);
             return root;
         } else {
-            if (root.left == null && root.right == null) {
-                return null;
-            } else if (root.left == null) {
-                return root.right;
-            } else if (root.right == null) {
-                return root.left;
+            if (root.left == null || root.right == null) {
+                return root.left != null ? root.left : root.right;
             } else {
                 TreeNode subRoot = root.right;
                 while (subRoot.left != null) {

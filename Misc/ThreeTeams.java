@@ -1,6 +1,7 @@
 package misc;
 
 /** CN IN FOLDER */
+// ! Fix this
 public class ThreeTeams {
     public static void main(String[] args) {
         int input[] = { 1, 2, 1, 2, 6, 7, 5, 1 };

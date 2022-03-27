@@ -106,6 +106,9 @@ public class BinaryTreeUse {
     }
 
     public static void printLevelWise(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
         QueueUsingLL<BinaryTreeNode<Integer>> pendingNodes = new QueueUsingLL<>();
         pendingNodes.enqueue(root);
         while (!pendingNodes.empty()) {
