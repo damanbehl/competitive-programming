@@ -14,12 +14,8 @@ public class LCABetter {
             }
         }
         TreeNode rightAns = lowestCommonAncestor(root.right, p, q);
-        if (leftAns == null && rightAns == null) {
-            return null;
-        }
-        if (leftAns != null && rightAns != null) {
-            return root;
-        }
-        return leftAns != null ? leftAns : rightAns;
+        if (leftAns == null || rightAns == null)
+            return leftAns != null ? leftAns : rightAns;
+        return root;
     }
 }
