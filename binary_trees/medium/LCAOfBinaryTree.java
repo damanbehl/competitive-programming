@@ -30,6 +30,11 @@ class Solution {
             }
         }
         Helper leftAns = getLCAHelper(root.left, p, q);
+        // improvement one, no duplicate nodes means we can terminate our search if
+        // value is found
+        if (leftAns.pres && leftAns.qres) {
+            return leftAns;
+        }
         Helper rightAns = getLCAHelper(root.right, p, q);
         res.pres = res.pres || leftAns.pres || rightAns.pres;
         res.qres = res.qres || leftAns.qres || rightAns.qres;
