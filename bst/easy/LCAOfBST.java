@@ -8,6 +8,9 @@ public class LCAOfBST {
         if (root == null) {
             return null;
         }
+        if (root.val == p.val || root.val == q.val) {
+            return root;
+        }
         boolean isDivergent = false;
         while (!isDivergent) {
             if (p.val < root.val && q.val < root.val) {
