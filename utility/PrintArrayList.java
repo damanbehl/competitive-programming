@@ -8,4 +8,11 @@ public class PrintArrayList {
             System.out.print(x + " ");
         }
     }
+
+    public <T> void printNested(ArrayList<ArrayList<T>> toPrint) {
+        for (ArrayList<T> x : toPrint) {
+            System.out.println();
+            print(x);
+        }
+    }
 }
