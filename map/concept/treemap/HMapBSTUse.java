@@ -1,4 +1,4 @@
-package map.concept;
+package map.concept.treemap;
 
 public class HMapBSTUse {
     public static void main(String[] args) {
@@ -10,6 +10,8 @@ public class HMapBSTUse {
         hm.put("zebra", 10);
         hm.put("zola", 10);
         hm.put("zola", 111);
+        hm.printLevelWise();
+        hm.delete("zola");
         hm.printLevelWise();
 
     }

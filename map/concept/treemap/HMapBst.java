@@ -1,4 +1,4 @@
-package map.concept;
+package map.concept.treemap;
 
 import exception.QueueEmptyException;
 import queues.concept.QueueUsingLL;

@@ -1,5 +1,7 @@
 package arrays;
 
+import java.util.ArrayList;
+//https://www.codingninjas.com/codestudio/problems/intersection-of-2-arrays_1082149
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -35,5 +37,22 @@ public class ArrayIntersectionRepOrd {
                 }
             }
         }
+    }
+
+    // with repitition
+    public static ArrayList<Integer> findArrayIntersection(ArrayList<Integer> arr1, int n, ArrayList<Integer> arr2,
+            int m) {
+        ArrayList<Integer> result = new ArrayList<>();
+        HashMap<Integer, Integer> seen = new HashMap<>();
+        for (int x : arr2) {
+            seen.put(x, seen.getOrDefault(x, 0) + 1);
+        }
+        for (int x : arr1) {
+            if (seen.containsKey(x) && seen.get(x) > 0) {
+                result.add(x);
+                seen.put(x, seen.get(x) - 1);
+            }
+        }
+        return result;
     }
 }

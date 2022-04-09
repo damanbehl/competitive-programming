@@ -1,4 +1,4 @@
-package map.concept;
+package map.concept.treemap;
 
 public class HNode<K, V> {
     public K key;
