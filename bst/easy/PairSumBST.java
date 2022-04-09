@@ -38,6 +38,7 @@ public class PairSumBST {
         if (root.left == null && root.right == null) {
             return false;
         }
+        findTargetBetterHelper(root, root, k);
         return isPresent;
     }
 
@@ -47,6 +48,11 @@ public class PairSumBST {
         }
         findTargetBetterHelper(node.left, root, k);
         int rest = k - node.val;
+        // rest>node.val condition check is required because if a case arises
+        // where k =root.val*2
+        // then find(k-root.val) will be the node itself and will return true even when
+        // it should not
+        // example case is (2 L null R 3) and k = 6
         if (rest > node.val) {
             if (find(root, rest)) {
                 isPresent = true;
