@@ -88,4 +88,35 @@ public class Priority_Queue {
         }
         return min;
     }
+
+    public int removeMinSimpler() throws PriorityQueueException {
+        if (isEmpty()) {
+            throw new PriorityQueueException();
+        }
+        int min = heap.get(0);
+        heap.set(0, heap.get(heap.size() - 1));
+        heap.remove(size() - 1);
+        int parentIndex = 0;
+        int minIndex = 0;
+        int lChildIndex, rChildIndex;
+        while (parentIndex < size() - 1) {
+            lChildIndex = 2 * parentIndex + 1;
+            rChildIndex = 2 * parentIndex + 2;
+            if (lChildIndex < size() && heap.get(lChildIndex) < heap.get(minIndex)) {
+                minIndex = lChildIndex;
+            }
+            if (rChildIndex < size() && heap.get(rChildIndex) < heap.get(minIndex)) {
+                minIndex = rChildIndex;
+            }
+            if (minIndex == parentIndex) {
+                break;
+            } else {
+                int temp = heap.get(parentIndex);
+                heap.set(parentIndex, heap.get(minIndex));
+                heap.set(minIndex, temp);
+                parentIndex = minIndex;
+            }
+        }
+        return min;
+    }
 }

@@ -1,5 +1,6 @@
 /**
  * solved to :https://open.spotify.com/track/5UatawMsGULDVG2h8wE1KS?si=e6b6ac6265ca4e62
+ * https://practice.geeksforgeeks.org/problems/modular-multiplicative-inverse-1587115620
  * solution for (a/b)%m
  */
 package Maths;
@@ -32,7 +33,10 @@ public class MMIExtendedEuc {
             return -1;
         }
         int gcd[] = gcdExtended(a, m);
-        return (gcd[1] % m + m) % m;
+        if (gcd[0] != 1)
+            return -1;
+        else
+            return (gcd[1] % m + m) % m;
     }
 
     static int[] gcdExtended(int a, int b) {
