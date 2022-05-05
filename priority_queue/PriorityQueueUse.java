@@ -7,6 +7,7 @@ public class PriorityQueueUse {
         Priority_Queue pq = new Priority_Queue();
         MaxPriorityQueue pqMax = new MaxPriorityQueue();
         int arr[] = { 22, 99, 11, 0, 5, 4 };
+        // Heap sort time comp : O(nlogn) space complexity = O(n)
         // for (int x : arr) {
         // pq.insert(x);
         // }
