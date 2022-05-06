@@ -1,4 +1,4 @@
-package priority_queue;
+package priority_queue.concept;
 
 import exception.PriorityQueueException;
 
