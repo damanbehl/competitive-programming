@@ -1,4 +1,4 @@
-package priority_queue;
+package priority_queue.medium;
 
 //https://leetcode.com/problems/sort-an-array
 public class InPlaceHeapSort {
