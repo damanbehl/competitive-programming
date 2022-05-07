@@ -1,7 +1,7 @@
 package priority_queue.medium;
 
 //https://www.codingninjas.com/codestudio/problems/convert-min-heap-to-max-heap_630293
-public class minToMaxHeap {
+public class MinToMaxHeap {
     public static void minHeapToMaxHeap(long[] arr) {
         // Your code goes here.
         int n = arr.length;
@@ -11,7 +11,7 @@ public class minToMaxHeap {
     }
 
     // start by the inner rightmost node, will recurse deeper for subtree where
-    // largest was found if it is within bounds
+    // largest was found if the (largest*2+1) next input param is is within bounds
     public static void maxHeapify(long arr[], int i, int n) {
         int lChild = 2 * i + 1;
         int rChild = 2 * i + 2;
