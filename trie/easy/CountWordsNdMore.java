@@ -15,10 +15,10 @@ class TrieNode {
     }
 }
 
-class Trie {
+class TrieDummy {
     private TrieNode root;
 
-    public Trie() {
+    public TrieDummy() {
         // Write your code here.
         root = new TrieNode('\0');
     }
