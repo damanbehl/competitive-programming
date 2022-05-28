@@ -1,4 +1,4 @@
-package trie.medium;
+package trie.hard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
