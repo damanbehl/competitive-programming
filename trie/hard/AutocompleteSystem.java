@@ -91,6 +91,9 @@ public class AutocompleteSystem {
         @Override
         public int compare(Pair a, Pair b) {
             if (a.freq == b.freq) {
+                // have to retain lexiographically smaller string as it will have more priority
+                // than a same frequency lexiographically
+                // larger string
                 return b.word.compareTo(a.word);
             } else {
                 return a.freq - b.freq;
