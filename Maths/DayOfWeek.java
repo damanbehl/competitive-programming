@@ -5,6 +5,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DayOfWeek {
+
+    public String dayOfTheWeekBetter(int day, int month, int year) {
+        String[] days = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+        int monthDays[] = { 0, 31, 59, 90, 120, 151, 181, 212, 243,
+                273, 304, 334 };
+        int totalDays = 365 * (year - 1) + monthDays[month - 1] + day;
+        if (month <= 2) {
+            year--;
+        }
+        int leapCount = (year / 4) - (year / 100) + (year / 400);
+        totalDays += leapCount;
+        return days[totalDays % 7];
+    }
+
     public String dayOfTheWeek(int day, int month, int year) {
         // order should match current day
         String[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
